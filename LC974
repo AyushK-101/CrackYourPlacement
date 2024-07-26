@@ -1,0 +1,15 @@
+int subarraysDivByK(vector<int>& nums, int k) {
+        unordered_map<int,int> m;
+        int cnt=0,rem=0,sum=0;
+        m.insert({0,1});
+
+        for(int i=0;i<nums.size();i++){
+            sum+=nums[i];
+            rem=sum%k;
+            if(rem<0) rem+=k;
+            if(m[rem]) {cnt+=m[rem];}
+            m[rem]++;
+        }
+
+        return cnt;
+}
