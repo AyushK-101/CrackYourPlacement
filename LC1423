@@ -1,0 +1,19 @@
+int maxScore(vector<int>& cardPoints, int k) {
+        long long maxi=0,curr=0;
+        for(int i=1;i<=k;i++){
+            curr+=cardPoints[cardPoints.size()-i];
+        }
+
+        maxi=curr;
+
+        int i=0;
+        while(k>0){
+            curr-=cardPoints[cardPoints.size()-k];
+            curr+=cardPoints[i];
+            k--;i++;
+            maxi=max(maxi,curr);
+        }
+
+        return maxi;
+
+}
