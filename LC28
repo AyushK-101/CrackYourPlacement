@@ -1,0 +1,10 @@
+int strStr(string haystack, string needle) {
+        int i=0,j=0;
+
+        while(i<haystack.size() && j<needle.size()){
+            while(haystack[i]==needle[j] && i<haystack.size() && j<needle.size()){i++;j++;}
+            if(j==needle.size()) return i-j;
+            i=i-j+1;j=0;
+        }
+        return -1;
+}
